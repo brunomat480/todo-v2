@@ -2,7 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import type React from "react";
 
 export const skeletonVariants = cva(`
-  animate-pulse bg-gray-200    
+  animate-pulse bg-gray-200 pointer-events-none  
 `, 
 {
   variants: {
