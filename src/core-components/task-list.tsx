@@ -1,6 +1,7 @@
 import Button from "../components/button";
 
 import PlusIcon from "../assets/icons/plus.svg?react";
+import TaskItem from "./task-item";
 
 export default function TaskList() {
   return (
@@ -10,11 +11,10 @@ export default function TaskList() {
       </section>
 
       <section className="space-y-2">
-        <TaskList />
-        <TaskList />
-        <TaskList />
-        <TaskList />
-        <TaskList />
+        <TaskItem />
+        <TaskItem />
+        <TaskItem />
+        <TaskItem />
       </section>
     </>
   )

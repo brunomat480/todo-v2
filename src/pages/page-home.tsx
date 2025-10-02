@@ -8,7 +8,6 @@ export default function PageHome() {
       <header className="flex items-center justify-between">
         <TasksSummary />
       </header>
-
       <TaskList />
     </Container>
   )
