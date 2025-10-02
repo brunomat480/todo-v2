@@ -1,5 +1,15 @@
-import Text from "./components/text";
+import { BrowserRouter, Route, Routes } from "react-router";
+import LayoutMain from "./pages/layout-main";
+import PageComponents from "./pages/page-components";
 
 export default function App() {
-  return <Text variant="body-md-bold">Olá Mundo!</Text>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LayoutMain />}>
+          <Route path="/components" element={<PageComponents />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  )
 }
