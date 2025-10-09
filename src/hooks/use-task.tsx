@@ -12,7 +12,14 @@ export default function useTask() {
     }])
   }
 
+  function updateTask(id: string, paylaod: { title: Task['title'] }) {
+    setTasks(
+      tasks.map((task) => task.id === id ? { ...task, state: TaskState.Created, ...paylaod } : task)
+    )
+  }
+
   return {
-    prepareTask
+    prepareTask,
+    updateTask
   }
 }
