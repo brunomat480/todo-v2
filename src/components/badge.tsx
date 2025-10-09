@@ -36,9 +36,9 @@ export const badgeTextVariants = cva("", {
 export const badgeSkeletonVariants = cva("", {
   variants: {
     size: {
-      sm: "w-5"
+      sm: "w-5 h-5"
     }
-  }, 
+  },
   defaultVariants: {
     size: "sm"
   }
@@ -49,7 +49,7 @@ interface BadgeProps extends React.ComponentProps<'div'>, VariantProps<typeof ba
 }
 
 export default function Badge({
-  variant, 
+  variant,
   size,
   className,
   children,
@@ -59,19 +59,19 @@ export default function Badge({
   if (loading) {
     return (
       <Skeleton
-       rounded="full" 
-       className={cx(
-        badgeVariants({variant: "none"}),
-        badgeSkeletonVariants({size}),
-        className
-      )}
+        rounded="full"
+        className={cx(
+          badgeVariants({ variant: "none" }),
+          badgeSkeletonVariants({ size }),
+          className
+        )}
       />
     )
   }
 
   return (
-    <div className={badgeVariants({variant, size, className})} {...props}>
-      <Text variant="body-sm-bold" className={badgeTextVariants({variant})}>{children}</Text>
+    <div className={badgeVariants({ variant, size, className })} {...props}>
+      <Text variant="body-sm-bold" className={badgeTextVariants({ variant })}>{children}</Text>
     </div>
   );
 }
