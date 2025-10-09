@@ -18,7 +18,7 @@ interface TaskItemProps {
 }
 
 export default function TaskItem({ task }: TaskItemProps) {
-  const { updateTask } = useTask()
+  const { updateTask, updateTaskStatus } = useTask()
 
   const [isEditing, setIsEditing] = useState(
     task?.state === TaskState.Creating
@@ -44,13 +44,19 @@ export default function TaskItem({ task }: TaskItemProps) {
     setIsEditing(false)
   }
 
+  function handleChangeTaskStatus(event: ChangeEvent<HTMLInputElement>) {
+    const checked = event.target.checked
+
+    updateTaskStatus(task.id, checked)
+  }
+
   return (
     <Card size="md">
       {!isEditing ? (
         <div className="flex items-center gap-4">
           <InputCheckbox
-            value={task.concluded?.toString()}
             checked={task?.concluded}
+            onChange={handleChangeTaskStatus}
           />
           <Text
             className={cx("flex-1", {
